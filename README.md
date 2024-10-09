@@ -32,5 +32,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou env
 
 ![Screenshot do Aplicativo](https://github.com/user-attachments/assets/ba51ac89-00fd-4663-b92f-9b140fd78a2e)
 
+![Screenshot do Aplicativo](https://github.com/user-attachments/assets/fa44a6a6-a655-480a-ac14-811e7ea21a37)
 
-![tela-criar-conta](https://github.com/user-attachments/assets/fa44a6a6-a655-480a-ac14-811e7ea21a37)
+
+
