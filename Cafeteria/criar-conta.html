@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(./src/Imagens/validador.png);
+            background-color: #383532;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-create-account {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 350px;
+            width: 100%;
+            margin: 20px;
+            padding: 30px;
+        }
+
+        .heading {
+            text-align: center;
+            font-weight: 900;
+            font-size: 30px;
+            color: rgb(16, 137, 211);
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .heading img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .form {
+            margin-top: 20px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+
+        .form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ccc;
+            font-size: 1rem;
+            padding-top: 20px;
+        }
+
+        .form .input {
+            width: 100%;
+            background: white;
+            border: none;
+            padding: 15px 10px;
+            border-radius: 20px;
+            margin-top: 15px;
+            box-shadow: #cff0ff 0px 10px 10px -5px;
+            border-inline: 2px solid transparent;
+            box-sizing: border-box;
+        }
+
+        .form .input::-moz-placeholder {
+            color: rgb(170, 170, 170);
+        }
+
+        .form .input::placeholder {
+            color: rgb(170, 170, 170);
+        }
+
+        .form .input:focus {
+            outline: none;
+            border-inline: 2px solid #12B1D1;
+        }
+
+        .form .login-button {
+            display: block;
+            width: 100%;
+            font-weight: bold;
+            background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+            color: white;
+            padding-block: 15px;
+            margin: 20px auto;
+            border-radius: 20px;
+            box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+            border: none;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .form .login-button:hover {
+            transform: scale(1.03);
+            box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+        }
+
+        .form .login-button:active {
+            transform: scale(0.95);
+            box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .success {
+            color: green;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section-create-account">
+        <div class="container">
+            <div class="heading">
+                Criar Conta
+                <img src="./src/Imagens/logo(1).png" alt="Logo">
+            </div>
+            <form id="createAccountForm" class="form">
+                
+                <label for="fullName">Nome Completo</label>
+                <input required class="input" type="text" name="fullName" id="fullName" placeholder="Nome Completo">
+
+                
+                <label for="address">Endereço</label>
+                <input required class="input" type="text" name="address" id="address" placeholder="Endereço">
+
+                
+                <label for="contact">Contato</label>
+                <input required class="input" type="text" name="contact" id="contact" placeholder="Contato">
+
+                
+                <label for="email">E-mail</label>
+                <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
+
+                
+                <label for="password">Criar Senha</label>
+                <input required class="input" type="password" name="password" id="password" placeholder="Criar Senha">
+
+                
+                <label for="confirmPassword">Confirme sua Senha</label>
+                <input required class="input" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirme sua Senha">
+
+                
+                <div class="error" id="errorMessage"></div>
+                <div class="success" id="successMessage"></div>
+
+                
+                <input class="login-button" type="submit" value="Criar Conta">
+            </form>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+            $('#createAccountForm').submit(function (e) {
+                e.preventDefault();
+
+                
+                const fullName = $('#fullName').val().trim();
+                const address = $('#address').val().trim();
+                const contact = $('#contact').val().trim();
+                const email = $('#email').val().trim();
+                const password = $('#password').val();
+                const confirmPassword = $('#confirmPassword').val();
+
+                
+                $('#errorMessage').text('');
+                $('#successMessage').text('');
+
+                
+                if (password !== confirmPassword) {
+                    $('#errorMessage').text('As senhas não coincidem. Por favor, tente novamente.');
+                    return;
+                }
+
+                // Simulação de criação de conta (substituir por lógica real)
+                // Aqui você pode adicionar chamadas AJAX para enviar os dados para o servidor
+
+                // Exemplo de feedback de sucesso
+                $('#successMessage').text('Conta criada com sucesso!');
+                
+                $('#createAccountForm')[0].reset();
+            });
+        });
+    </script>
+</body>
+
+</html>
